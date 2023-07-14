@@ -1,0 +1,40 @@
+int IND(int arr[], int size, int key){
+
+     int start =0;
+     int end=size-1;
+     int mid=start+(end-start)/2;
+     while(start<end){
+          if(key==arr[mid]){
+               return mid;
+          }
+          else if(key>mid){
+               start=mid+1;
+          }
+          else end=mid-1;
+
+        mid=start+(end-start)/2;
+     }
+     return mid;
+}
+
+
+
+int main(){
+
+int n;
+cin>>n;
+
+int arr[n];
+for(int i=0;i<n;i++){
+cin>>arr[i];
+}    
+
+sort(arr,arr+n);
+
+
+int key;
+cin>>key;
+
+int index = IND(arr,n,key);
+cout<<"Index of key- "<<key<<" is "<< index<<endl;
+}
